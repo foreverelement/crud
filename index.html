@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Drink Orders</title>
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<div class="container">
+		<div class="page-header">
+			<h1>Drink Orders</h1>
+		</div>
+
+		<div class="orders">
+			<!-- Add drink orders here -->
+		</div>
+
+		<h4>Add a Drink Order</h4>
+		<form>
+			<label for="name">Name:</label>
+			<p><input type="text" id="name" class="form-control" placeholder="Enter name"></p>
+			<label for="drink">Drink:</label>
+			<p><input type="text" id="drink" class="form-control" placeholder="Enter drink"></p>
+			<p><button type="submit" class="btn btn-primary pull-right" id="add-order">Add Order</button></p>			
+		</form>
+	</div>
+
+	<footer>	
+		<div class="container">
+			<hr>	
+			<p>Copyright &copy;2015 <a href="http://www.minuteofzen.com">MinuteofZen.com</a></p>
+		</div>
+	</footer>
+
+	<template id="order-template">	
+		<div class="well"> 
+			<p>	
+				<strong>Name:</strong> 
+				<span class="noEdit">{{name}}</span>
+				<input type="text" class="edit name form-control"> 
+			</p>
+			<p>	 
+				<strong>Drink:</strong> 
+				<span class="noEdit">{{drink}}</span>
+				<input type="text" class="edit drink form-control">
+			</p>	
+			<p>	
+				<button class="btn btn-info editOrder noEdit">Edit</button>
+				<button class="btn btn-warning cancelEdit edit">Cancel</button>	
+				<button class="btn btn-success saveEdit edit">Save</button>
+				<button class="btn btn-danger remove" data-id="{{id}}">Remove</button>
+			</p>
+		</div>			
+	</template>
+
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/mustache/mustache.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>

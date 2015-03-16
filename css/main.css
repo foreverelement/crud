@@ -1,0 +1,11 @@
+div.well .edit {
+	display: none;
+}
+
+div.well.edit .edit {
+	display: initial;
+}
+
+div.well.edit .noEdit {
+	display: initial;
+}
