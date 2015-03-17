@@ -6,6 +6,8 @@ $(function() {
 
 	var orderTemplate = $('template#order-template').html();
 
+	// Retrieve all orders on page load
+
 	$.ajax({
 		type: 'GET',
 		url: 'http://rest.learncode.academy/api/victordiaz/orders',
@@ -21,6 +23,8 @@ $(function() {
 			.fadeIn();
 		}
 	});
+
+	// Add a new order
 
 	$('#add-order').on('click', function(e) {
 		e.preventDefault();
@@ -63,6 +67,8 @@ $(function() {
 		}
 	});	
 
+	// Remove an order
+
 	$orders.delegate('.remove', 'click', function()	{
 		
 		var $parent = $(this).closest('div');	
@@ -78,6 +84,8 @@ $(function() {
 		});
 	});
 
+	// Edit an order
+
 	$orders.delegate('.edit-order', 'click', function() {
 		var $parent = $(this).closest('div'),
 			$name = $parent.find('input.name'),
@@ -91,9 +99,13 @@ $(function() {
 		$name.focus();
 	});
 
+	// Cancel order edit
+
 	$orders.delegate('.cancel-edit', 'click', function() {
 		$(this).closest('div').removeClass('edit');
 	});
+
+	// Save order edit
 
 	$orders.delegate('.save-edit', 'click', function() {
 		var $parent = $(this).closest('div')
@@ -125,6 +137,8 @@ $(function() {
 		});	
 
 	});
+
+	// Helper functions
 
 	function addOrder(order) {
 		$orders
