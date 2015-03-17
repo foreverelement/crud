@@ -78,6 +78,54 @@ $(function() {
 		});
 	});
 
+	$orders.delegate('.edit-order', 'click', function() {
+		var $parent = $(this).closest('div'),
+			$name = $parent.find('input.name'),
+			$drink = $parent.find('input.drink');
+
+		$name.val($parent.find('span.name').html());
+		$drink.val($parent.find('span.drink').html());
+
+		$parent.addClass('edit');
+
+		$name.focus();
+	});
+
+	$orders.delegate('.cancel-edit', 'click', function() {
+		$(this).closest('div').removeClass('edit');
+	});
+
+	$orders.delegate('.save-edit', 'click', function() {
+		var $parent = $(this).closest('div')
+
+		var order = {
+			name: $parent.find('input.name').val(),
+			drink: $parent.find('input.drink').val()
+		};
+
+		console.log(order);
+		console.log($parent.data('id'));
+
+		$.ajax({
+			type: 'PUT',
+			url: 'http://rest.learncode.academy/api/victordiaz/orders/' + $parent.data('id'),
+			data: order,
+			success: function(newOrder) {
+				$parent.find('span.name').html(order.name);
+				$parent.find('span.drink').html(order.drink);
+
+				$parent.removeClass('edit');
+			},
+			error: function() {
+				$orders
+				.hide()
+				.append('<p class="alert alert-danger">*Error saving order.</p>')
+				.fadeIn('fast', disappear(5000));
+			}
+		});	
+
+	});
+
 	function addOrder(order) {
 		$orders
 			.hide()

@@ -1,3 +1,5 @@
+/* Helper classes to show and hide buttons */
+
 div.well .edit {
 	display: none;
 }
@@ -6,6 +8,6 @@ div.well.edit .edit {
 	display: initial;
 }
 
-div.well.edit .noEdit {
+div.well.edit .no-edit {
 	display: initial;
 }

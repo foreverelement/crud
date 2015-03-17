@@ -33,22 +33,24 @@
 		</div>
 	</footer>
 
+	<!-- Mustache order template -->
+
 	<template id="order-template">	
-		<div class="well"> 
+		<div class="well" data-id="{{id}}"> 
 			<p>	
 				<strong>Name:</strong> 
-				<span class="noEdit">{{name}}</span>
+				<span class="no-edit name">{{name}}</span>
 				<input type="text" class="edit name form-control"> 
 			</p>
 			<p>	 
 				<strong>Drink:</strong> 
-				<span class="noEdit">{{drink}}</span>
+				<span class="no-edit drink">{{drink}}</span>
 				<input type="text" class="edit drink form-control">
 			</p>	
 			<p>	
-				<button class="btn btn-info editOrder noEdit">Edit</button>
-				<button class="btn btn-warning cancelEdit edit">Cancel</button>	
-				<button class="btn btn-success saveEdit edit">Save</button>
+				<button class="btn btn-info edit-order no-edit">Edit</button>
+				<button class="btn btn-warning cancel-edit edit">Cancel</button>	
+				<button class="btn btn-success save-edit edit">Save</button>
 				<button class="btn btn-danger remove" data-id="{{id}}">Remove</button>
 			</p>
 		</div>			
